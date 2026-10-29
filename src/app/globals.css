@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+}
+
+/* ──────────────────────────────────────────────────────────
+   CSS Custom Properties – Design Tokens
+   Stone-based palette for TUSU Workspace
+   ────────────────────────────────────────────────────────── */
+:root {
+  /* Background */
+  --background: 0 0% 99%;
+  --foreground: 28 5% 10%;
+
+  /* Card / surface */
+  --card: 0 0% 100%;
+  --card-foreground: 28 5% 10%;
+
+  /* Popover */
+  --popover: 0 0% 100%;
+  --popover-foreground: 28 5% 10%;
+
+  /* Primary – warm indigo */
+  --primary: 243 75% 59%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Secondary */
+  --secondary: 28 6% 94%;
+  --secondary-foreground: 28 5% 22%;
+
+  /* Muted */
+  --muted: 28 6% 92%;
+  --muted-foreground: 28 5% 45%;
+
+  /* Accent */
+  --accent: 28 6% 92%;
+  --accent-foreground: 28 5% 22%;
+
+  /* Destructive */
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+
+  /* Border / input / ring */
+  --border: 28 5% 88%;
+  --input: 28 5% 88%;
+  --ring: 243 75% 59%;
+
+  /* Chart */
+  --chart-1: 243 75% 59%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 45 93% 47%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+
+  /* Sidebar */
+  --sidebar: 28 8% 97%;
+  --sidebar-foreground: 28 5% 22%;
+  --sidebar-border: 28 5% 90%;
+
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: 28 8% 8%;
+  --foreground: 28 8% 96%;
+
+  --card: 28 6% 11%;
+  --card-foreground: 28 8% 96%;
+
+  --popover: 28 6% 11%;
+  --popover-foreground: 28 8% 96%;
+
+  --primary: 243 75% 65%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 28 5% 17%;
+  --secondary-foreground: 28 8% 85%;
+
+  --muted: 28 5% 17%;
+  --muted-foreground: 28 5% 55%;
+
+  --accent: 28 5% 17%;
+  --accent-foreground: 28 8% 85%;
+
+  --destructive: 0 63% 57%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 28 5% 20%;
+  --input: 28 5% 20%;
+  --ring: 243 75% 65%;
+
+  --chart-1: 243 75% 65%;
+  --chart-2: 173 58% 55%;
+  --chart-3: 45 93% 60%;
+  --chart-4: 280 65% 70%;
+  --chart-5: 340 75% 65%;
+
+  --sidebar: 28 6% 9%;
+  --sidebar-foreground: 28 8% 88%;
+  --sidebar-border: 28 5% 16%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.4);
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background-color: hsl(var(--card) / 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid hsl(var(--border) / 0.6);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+/* Gradient text */
+.gradient-text {
+  background-image: linear-gradient(to right, hsl(var(--primary)), #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Sidebar active item */
+.nav-item-active {
+  background-color: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+  font-weight: 500;
+}
+
+/* Pulse animation for overdue */
+.overdue-pulse {
+  animation: overdue-pulse 2s ease-in-out infinite;
+}
+
+@keyframes overdue-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shrink {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+

@@ -336,15 +336,15 @@ create policy "tasks: select"
     )
   );
 
--- INSERT: admin/manager can create and assign; member can create personal tasks only
+-- INSERT: admin/manager can create and assign; member can create tasks for themselves or personal tasks
+drop policy if exists "tasks: insert" on public.tasks;
 create policy "tasks: insert"
   on public.tasks for insert
   with check (
     created_by = auth.uid()
     and (
       public.is_admin_or_manager()
-      -- members can only create personal tasks for themselves
-      or (is_personal = true and assignee_id = auth.uid())
+      or assignee_id = auth.uid()
     )
   );
 
